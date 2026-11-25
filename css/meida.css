@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+@media(max-width:1210px){
+    #wrap{width: 100%;}
+    #banner > ul > li > img{
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        /* 오른쪽을보겠다 */
+        object-position: left;
+    }
+    #contents > article{
+        width: 50%; height: 200px;}
+    #contents > .gallery > ul{}
+    #contents > .gallery > ul>li{
+        width: 30%;
+        margin-right: 5%;
+        /* 30한이유 30 30 30 90씩 있고 나머지 10은 마진라이트로5 */
+    }
+    #contents > .gallery > ul > li > img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+    #contents > .link{
+        width: 100%;
+        height: auto;}
+    #contents > .link > ul{}
+    #contents > .link > ul > li{
+    width: 30%;
+    height: 300px;
+    margin-right: 5%;
+    }
+    #contents > .link > ul > li > img{
+        object-position: top;}
+    #footer > .f_copy{
+    width: calc(100% - 400px);}
+
+}
+
+@media(max-width:1024px){}
+@media(max-width:960px){
+    #header .nav > ul > li > a{width: 100px;}
+}
+@media(max-width:768px){
+    #header .nav{display: none;}
+    #header .logo{width: 100%;}
+    #contents > .notice{
+        width: 100%;
+    }
+    #contents > .gallery{
+        width: 100%;
+        height: auto;
+    }
+    #contents > .gallery > ul{}
+    #contents > .gallery > ul > li{
+        height: 200px;
+    }
+    #contents > .gallery > ul > li > img{}
+    #contents > .link > ul > li{
+    height: 200px;
+    }
+  #footer > .f_logo{
+    width: 100%;
+  }
+  #footer > .f_copy{
+    width: calc(100% - 200px);}
+}
+
+@media(max-width:600px){
+    #footer > .f_copy{width: 100%; height: 50px;}
+     #footer > .f_sns{width: 100%; height: 50px;}
+}
+@media(max-width:480px){}
+@media(max-width:320px){}
+
+/* 1. 어디서 떨어지는지 확인 */

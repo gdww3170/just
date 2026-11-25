@@ -1,0 +1,295 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.clearfix::before, .clearfix::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+/* 플롯때문에,부모의높이값이없어지는게 들어간다 html에 클리어픽스를하면 */
+img{
+    display: block;
+}
+address,em{
+    font-style: normal;
+}
+/* 이미지와 이미지사이에 빈공간없애려고 인라인구조라서! */
+body{
+    background-color: #e5e5e5;
+}
+#wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+#header{
+
+}
+#header .logo{
+    width: 200px;
+    height: 100px;
+    display: flex;
+    /* 가운데 */
+    align-items: center;
+    /* 세로가운데 */
+    justify-content: center;
+    /* 가로가운데 */
+    float: left;
+}
+#header .logo > a{}
+#header .logo > a > img{}
+
+#header .nav{
+    margin-top: 50px;
+    float: right;
+}
+#header .nav > ul{}
+#header .nav > ul > li{
+    float: left;
+    position: relative;
+}
+#header .nav > ul > li > a{
+    width: 150px;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    /* display: block; */
+    display: flex;
+    /* 중복이 되면 쓰지못해 블럭을쓰지말고 플렉스하나만써두댐 가운데+블럭구조변경 */
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#header .nav > ul > li > .submenu{
+    position: absolute;
+    left: 0;
+    top: 50;
+    /* 메인메뉴를 가려버리니까 내린것이양 */
+    width: 100%;
+    /* 포지션이라서 준것 */
+    display: none;
+    /* display: none - 감춘다.
+    뭐를 찾아가지구 마우스올려서 보여줄거야? 서브메뉴!
+    그러면은 서브메뉴를 감췄다가 보여야겠지? */
+   
+}
+#header .nav > ul > li > .submenu > li{}
+#header .nav > ul > li > .submenu > li > a{
+    width: 100%;
+    line-height: 50px;
+    display: block;
+    /* 블럭하면 늘어난당 폭크기 */
+    font-style: 18px;
+    text-align: center;
+    background-color: #999;
+}
+#header .nav > ul > li > .submenu > li > a:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+
+
+#header .nav > ul > li > a:hover{
+    background-color: #777;
+}
+/* a:hover : a에 백그라운드가 있어서 a에다가 hover를 깔아야 보인다 
+만약 li에 백그라운드컬러가 있다 그러면 hover 했을거야*/
+
+
+#banner{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    /* 오버플로우 히든 배너이외에 부분을 감추겠당 */
+}
+#banner > ul{
+    /* 3600이었떤걸 300으로바꾸고 반응형*/
+    width: 300%;
+}
+#banner > ul > li{
+    /* 100퍼센트 3개로 나누면? 넓이값을 33.3프로로바꾸기 반응형 */
+    width: 33.3%;
+    float: left;
+    /* 컨텐츠 못찾으니까 클레어픽스 ul에 걸어줘 */
+}
+#banner > ul > li > img{}
+
+#contents{}
+#contents > article{
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+    float: left;
+}
+#contents > article > h3{
+    background-color: #000;
+    color: #fff;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+#contents > article > ul{
+    border-top: 1px solid #000;
+    padding-top: 10px;
+}
+#contents > .notice{}
+#contents > .notice > ul{}
+#contents > .notice > ul > li{
+    padding: 5px 0px 5px 15px;
+    /* 위쪽 오른쪽 아래쪽 왼쪽 */
+    position: relative;
+}
+#contents > .notice > ul > li::before{
+    content: "";
+    /* display: block;  포지션있으니까 지워도됨*/
+    width: 5px;
+    height: 5px;
+    background-color: grey;
+    /* 가상요소 삽입 컨텐츠필수, 비폴에 하니까 앞쪽에 가상요소생김
+    애프터하면뒤에생김 */
+    position: absolute;
+    top: 15px;
+    left: 0;
+    /* 좌우움직임 +하면 아래 오른쪽로 -왼쪽위로 */
+    border-radius: 50%;
+}
+/* #contents > .notice > ul > li::after{content: "2.";} */
+
+
+#contents > .notice > ul > li > a{
+    /* background-color: lightblue; */
+    /* 말줄임표4종세트 */
+    white-space: nowrap;
+    /* 자리부족해서 아래로 떨어지는 텍스트를 한줄로 나타내주는 명령어 */
+    display: block;
+    /* 텍스트가 인라인구조여서 블록구조로 변경해서 사이즈에맞게한다 */
+    overflow: hidden;
+    /* 영역에서 넘쳐난걸 감추는 명령어 */
+    text-overflow: ellipsis;
+    /* 글자를 잘라버리고 그자리에 ...을 넣겠다 */
+}
+
+#contents > .gallery{}
+#contents > .gallery > ul{}
+
+#contents > .gallery > ul>li{
+    width: 120px;
+    height: 130px;
+    background-color: #aaa;
+    float: left;
+    margin-right: 10px;
+    position: relative;
+    overflow: hidden;
+}
+#contents > .gallery > ul > li > img{}
+#contents > .gallery > ul > li > span{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(55, 55, 55);
+    color: #fff;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    bottom: -50px;
+    /* 반응형해야하니깐 0으로줘야 맞춰서 들어가져 */
+    transition: all 0.3s;
+    text-align: center;
+    line-height: center;
+}
+
+#contents > .gallery > ul > li:hover > span{
+    bottom: 0px;
+}
+
+
+#contents > .gallery > ul>li:last-child{
+    margin-right: 0;
+}
+/* 3개이미지 다 마진라이트 10 주면 마지막께 떨어지니깐 0으로 바꿔서안떨어지게~ */
+
+#contents > .link{}
+#contents > .link > ul{}
+#contents > .link > ul > li{
+    width: 120px;
+    height: 130px;
+    overflow: hidden;
+    /* 올라올때 여기만보일거니까 */
+    float: left;
+    margin-right: 10px;
+    position: relative;
+}
+
+#contents > .link > ul > li:nth-of-type(3){
+    margin-right: 0;
+}
+/* 라스트오브타입 아니구..그냥 of-type... */
+#contents > .link > ul > li > img{
+    /* 부모의 사이즈로 비율 맞춰서 사용하는 방법 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 넓이높이가 있어야 오브젝핏먹힘! 비율맞춰넣어줌 */
+}
+#contents > .link > ul > li > span{
+    position: absolute;
+    /* 얘 고정점은 얘 부모한테줘야함 */
+    left: 0;
+    bottom: -40px;
+    /* 원래는여기에있음 */
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    line-height: center;
+    transition: all 0.3s;
+}
+
+#contents > .link > ul > li:hover > span{
+    bottom: 0;
+    /* 손댔을때! 이곳에있겠다! */
+}
+
+
+#footer{
+    background-color: #404040;
+    color: #fff;
+}
+/* 넓이가 안들어갔는데 100% 차지하고 있으면 블럭구조
+넓이값이 안먹으면 인라인구조! */
+#footer > article{
+        width: 200px;
+        height: 100px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+#footer > .f_logo{}
+#footer > .f_copy{
+    width: 800px;}
+
+/* #footer > .f_copy > address{
+    font-style: normal;
+    냅다 어드레스쓰면 비스듬하게 나오니까 스타일을 노멀로 하면 전처럼 푝 살아남 근데 그냥 처음부터 em이랑 어드레스 따로빼서 노멀해놔*/
+
+#footer > .f_sns{}
+#footer > .f_sns > ul{}
+#footer > .f_sns > ul > li{
+    float: left;
+    margin: 5px;
+}
+
+
